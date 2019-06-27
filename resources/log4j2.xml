@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="warn" monitorInterval="30">
+    <Properties>
+        <Property name="base">../logs</Property>
+    </Properties>
+    <appenders>
+        <console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss:SSS} [%thread] [%p] %logger - %m%n"/>
+        </console>
+        <RollingFile name="file" fileName="${base}/management.log" filePattern="${base}/$${date:yyyy-MM}/management-%d{yyyy-MM-dd}-%i.log.zip">
+            <PatternLayout pattern="%d{HH:mm:ss:SSS} [%thread] [%p] %logger - %m%n"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+    </appenders>
+    <loggers>
+        <logger name="com.cplatform" level="debug"/>
+        <logger name="freemarker" level="error"/>
+        <logger name="org.springframework" level="error"/>
+        <logger name="springfox.documentation" level="error"/>
+        <logger name="org.apache" level="error"/>
+        <logger name="io.netty" level="warn"/>
+        <logger name="io.lettuce" level="error"/>
+        <logger name="com.netflix" level="error"/>
+        <logger name="org.hibernate" level="warn"/>
+        <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="trace"/>
+        <logger name="org.hibernate.SQL" level="trace"/>
+        <root level="debug">
+            <appender-ref ref="stdout"/>
+        </root>
+    </loggers>
+
+</configuration>
