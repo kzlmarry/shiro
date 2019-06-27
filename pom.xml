@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.cplatform</groupId>
+        <artifactId>cucme</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>com.cplatform.cucme</groupId>
+    <artifactId>cucme-manager</artifactId>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.cplatform.cucme</groupId>
+            <artifactId>cucme-base</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cplatform.bricks.web</groupId>
+            <artifactId>bricks-web-tomcat</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- <dependency>
+            <groupId>com.cplatform.bricks.authentic</groupId>
+            <artifactId>bricks-authentic-interceptor</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency> -->
+        <dependency>
+            <groupId>com.cplatform.bricks.async</groupId>
+            <artifactId>bricks-async-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cplatform.bricks</groupId>
+            <artifactId>bricks-test</artifactId>
+        </dependency>
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>1.2.23</version>
+		</dependency>
+         <!-- shiro -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring-boot-web-starter</artifactId>
+           	<version>1.4.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- shiro  end -->
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.cplatform.cucme.ManagerApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
